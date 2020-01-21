@@ -1,0 +1,15 @@
+<template name="list">
+  <view class="list row verticle-center" catchtap='navigateTo'>
+    <view class="list-text flex-1">{{text}}</view>
+    <view class="f16 ml10 mr10 gray6" wx:if="{{num > 0}}">{{num}}</view>
+    <icon class="flex" type="{{isSelect ? 'success_circle' : 'circle'}}" color="{{isSelect ? '#FFA800' : ''}}" size="20" catchtap="bindCheckGoodsItem"  data-check-value="{{isSelect ? false : true}}" data-index="{{index}}" />
+    <view class="half-px-border half-px-border-bottom"></view>
+  </view>
+</template>
+<view class="editGoods mr20 ml20 mt10 bg-white">
+  <template wx:for="{{list}}" wx:key="index" is="list" data="{{index: index, ...item}}"></template>
+</view>
+<view class="foot-btn flex ju-c mt30">
+  <view class="btn edit">编辑</view>
+  <view class="btn dele">删除</view>
+</view>

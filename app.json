@@ -1,20 +1,19 @@
 {
   "pages": [
     "pages/index/index",
-    "pages/buyCar/buyCar",
     "pages/order/order",
-    "pages/orderDetail/orderDetail",
-    "pages/orderSubmit/orderSubmit",
+    "pages/purchaseOrder/purchaseOrder",
     "pages/paySuccess/paySuccess",
     "pages/my/my",
-    "pages/shopManage/shopManage",
-    "pages/staffManage/staffManage",
     "pages/aboutUS/aboutUS",
     "pages/service/service",
     "pages/set/set",
     "pages/shippingAddress/shippingAddress",
     "pages/addAddress/addAddress",
     "pages/applySettled/applySettled",
+    "pages/customerOrder/customerOrder",
+    "pages/detailGoods/detailGoods",
+    "pages/editGoods/editGoods",
     "pages/login/login"
   ],
   "window": {
@@ -35,16 +34,16 @@
         "selectedIconPath": "images/tabBar_icon/icon_home_depressed.png"
       },
       {
-        "pagePath": "pages/buyCar/buyCar",
-        "text": "购物车",
-        "iconPath": "images/tabBar_icon/icon_product_depressed_defult.png",
-        "selectedIconPath": "images/tabBar_icon/icon_product_depressed.png"
+        "pagePath": "pages/purchaseOrder/purchaseOrder",
+        "text": "报价单",
+        "iconPath": "images/tabBar_icon/icon_business_defult.png",
+        "selectedIconPath": "images/tabBar_icon/icon_business.png"
       },
       {
         "pagePath": "pages/order/order",
-        "text": "订单",
-        "iconPath": "images/tabBar_icon/icon_business_defult.png",
-        "selectedIconPath": "images/tabBar_icon/icon_business.png"
+        "text": "采购单",
+        "iconPath": "images/tabBar_icon/icon_product_depressed_defult.png",
+        "selectedIconPath": "images/tabBar_icon/icon_product_depressed.png"
       },
       {
         "pagePath": "pages/my/my",

@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "报价单商品",
+  "usingComponents": {
+    "mp-icon": "../../component/icon/icon"
+  }
+}

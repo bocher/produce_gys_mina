@@ -13,61 +13,12 @@ Page({
       latitude: 23.18139,
       longitude: 113.48067
     },
-    // 当前店铺
-    curShop: {
-      shopId: 222,
-      shopName: '广州店铺2'
-    },
+    array: ['美国', '中国', '巴西', '日本'],
     shopPopData: {}, // 店铺弹框选择前的店铺数据
-    // 店铺列表
-    shopList: [
-      {
-        shopId: 111,
-        shopName: '广州店铺1'
-      }, 
-      {
-        shopId: 222,
-        shopName: '广州店铺2'
-      },
-      {
-        shopId: 333,
-        shopName: '广州店铺3'
-      },
-      {
-        shopId: 444,
-        shopName: '广州店铺4'
-      },
-      {
-        shopId: 555,
-        shopName: '广州店铺5'
-      }
-    ],
     shopPop: false, // 是否显示店铺弹框
     showShopList: false, // 是否显示店铺下拉列表
     // 顶部导航菜品分类
     narList: [],
-    // narList: [
-    //   {
-    //     categoryId: 1,
-    //     categoryName: '粮油',
-    //     imgUrl: '../../images/cai.jpg'
-    //   },
-    //   {
-    //     categoryId: 2,
-    //     categoryName: '蔬菜',
-    //     imgUrl: '../../images/cai.jpg'
-    //   },
-    //   {
-    //     categoryId: 3,
-    //     categoryName: '百货',
-    //     imgUrl: '../../images/cai.jpg'
-    //   },
-    //   {
-    //     categoryId: 4,
-    //     categoryName: '生鲜',
-    //     imgUrl: '../../images/cai.jpg'
-    //   }
-    // ],
     // 选中的左侧类别
     curCategoryId: 1,
     // 产品数据
@@ -343,6 +294,10 @@ Page({
     isClickView: false,
   },
 
+  // 获取城市列表
+  getCityList: function () {
+    
+  },
   /**
    * 生命周期函数--监听页面加载
    */
@@ -413,29 +368,12 @@ Page({
     console.log('首页')
     this.getData();
   },
-  // 获取当前定位的城市
-  getCurCity: function () {
-    console.log('获取当前定位')
-      getApp().setLocation(1)
-        .then((res) => {
-          console.log('res', res)
-          wx.showToast({
-            title: '获取经纬度成功',
-            icon: 'none',
-            duration: 2000
-          })
-        })
-        .catch((error) => {
-          console.log('error', error)
-        })
-  },
-  // 显示店铺弹框
+  // 显示弹框
   showShopPop: function () {
     console.log('显示店铺弹框', this.data.curShop)
     this.setData({
       shopPopData: this.data.curShop,
       shopPop: true,
-      showShopList: false
     })
   },
   // 显示店铺下拉数据
@@ -479,6 +417,12 @@ Page({
   // 获取数据
   getData: function () {
     this.getScrollHeight();
+  },
+  bindPickerChange: function (e) {
+    console.log('picker发送选择改变，携带值为', e.detail.value)
+    this.setData({
+      index: e.detail.value
+    })
   },
   // 菜品滚动高度
   getScrollHeight: function () {
