@@ -81,7 +81,8 @@ App({
     var systemInfo = wx.getSystemInfoSync()
     console.log('------------设备信息---------', systemInfo);
     let {  model } = systemInfo;
-    if (model.indexOf('iPhone X') !== -1 || model.indexOf('iPhone11') !== -1) {
+    let ipxList = ['iPhone X', 'iPhone XR', 'iPhone XS', 'iPhone XS Max', 'iPhone11'];
+    if (ipxList.indexOf(model) !== -1) {
       this.globalData.isIpx = true;
     } else {
       this.globalData.isIpx = false;
@@ -154,12 +155,22 @@ App({
         this.globalData.isAuthUserinfo = false;
       })
   },
-  // 存储用户数据
-  saveUserinfo: function (res) {
-    console.log('存储用户数据', res)
-    // wx.setStorageSync("userId", userinfo.userId);
-    this.globalData.userInfo = res;
-    // wx.setStorageSync("userinfo", userinfo);
+  // 存储用户数据和设置缓存
+  saveUserInfo: function (userInfo) {
+    console.log('存储用户数据和设置缓存', userInfo)
+    this.globalData.userInfo = userInfo;
+    wx.setStorageSync("sj_userInfo", userInfo);
+    wx.setStorageSync("sj_userId", userInfo.id);
+    wx.setStorageSync("sj_token", userInfo.token);
+  },
+
+  // 清空用户信息和缓存
+  clearUserInfo: function () {
+    console.log('清空用户信息和缓存')
+    this.globalData.userInfo = {};
+    wx.removeStorageSync('sj_userInfo');
+    wx.removeStorageSync('sj_userid');
+    wx.removeStorageSync('sj_token');
   },
 
   // 查询授权情况
